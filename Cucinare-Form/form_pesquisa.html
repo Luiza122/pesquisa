@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pesquisa Cucinare</title>
+
+    <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <style>
+        body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                  url('background.jpg') no-repeat center center/cover;
+      background-attachment: fixed;
+      color: #fff;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .logo {
+        padding-top: 20px;
+      display: block;
+      margin: 0 auto 30px;
+      width: 100px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #f5d96d;
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin: 20px 0 10px;
+      font-weight: 600;
+      font-size: 16px;
+      color: #f0f0f0;
+    }
+
+    .input-icon {
+      position: relative;
+    }
+
+    .input-icon i {
+      position: absolute;
+      top: 50%;
+      left: 12px;
+      transform: translateY(-50%);
+      color: #999;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px 12px 12px 40px;
+      border-radius: 10px;
+      border: none;
+      font-size: 15px;
+      background-color: #fff;
+      color: #333;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+      transition: box-shadow 0.3s ease;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      box-shadow: 0 0 5px 2px #f5d96d;
+    }
+
+    select {
+      padding-left: 40px;
+    }
+
+    .radio-group {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: 8px;
+        margin: 15px 0 10px;
+    }
+
+    .radio-group label {
+      background-color: #f5d96d;
+      color: #000;
+      padding: 12px;
+      border-radius: 50%;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+      transition: transform 0.2s, background-color 0.3s;
+      height: 36px;
+      text-align: center;
+      line-height: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 36px;
+      padding: 10px;
+    }
+
+    .radio-group input[type="radio"] {
+      display: none;
+    }
+
+    .radio-group input[type="radio"]:checked + label {
+        background-color: #ffda57;
+        border: 2px solid #fff;
+        color: #000;
+        transform: scale(1.15);
+    }
+
+        /* Oculta justificativas por padrão */
+    .justificativa {
+        display: none;
+        margin-top: 10px;
+    }
+
+    button {
+      background: linear-gradient(90deg, #f5d96d, #e6b347);
+      color: #000;
+      border: none;
+      padding: 14px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 12px;
+      cursor: pointer;
+      display: block;
+      margin: 30px auto 0;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(90deg, #ffdf7f, #f2c75c);
+    }
+
+    #outraAreaContainer input {
+      padding-left: 12px;
+    }
+
+    @media screen and (max-width: 768px) {
+      .radio-group {
+        justify-content: space-around;
+      }
+
+      .radio-group label {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      select,
+      textarea {
+        font-size: 14px;
+      }
+
+      button {
+        font-size: 16px;
+      }
+    }
+
+    #form {
+        padding-left: 20%;
+        padding-right: 20%;
+        text-align: center;
+        
+    }
+    #perguntas {
+     margin-top: 100px;
+     margin-bottom: 100px;
+}
+
+.question {
+  margin-bottom: 80px;
+}
+
+.button {
+  margin-bottom: 30px;
+}
+  </style>
+</head>
+<body>
+<img src="logo.jpeg" alt="Logo da empresa" class="logo">
+<form action="salvar_resposta.php" method="POST" id="form">
+  <h1>Pesquisa Cucinare com Interlocutor</h1>
+
+  <p>Olá como vai?<br><br>
+  Nós da CUCINARE somos comprometidos com a privacidade e proteção dos dados pessoais...</p>
+
+  <label for="nome">Qual seu nome? *</label>
+  <input type="text" id="nome" name="nome" required />
+
+  <label for="email">E-mail para contato: *</label>
+  <input type="email" id="email" name="email" required />
+
+  <label for="area">Sua área de atuação: *</label>
+ <select id="area" name="area" required onchange="verificarOutraArea()">
+  <option value="">Selecione</option>
+  <option>Recursos Humanos</option>
+  <option>Suprimentos / Compras</option>
+  <option>Financeiro</option>
+  <option>Administrativa</option>
+  <option>Operações</option>
+  <option value="Outro">Outro</option>
+</select>
+
+<div id="outraAreaContainer" style="display: none; margin-top: 10px;">
+  <label for="outraArea">Por favor, informe sua área:</label>
+  <input type="text" id="outraArea" name="outraArea" />
+</div>
+
+  <!-- Perguntas 1 a 7 -->
+  <div id="perguntas"></div>
+
+  <label for="indicacao">8. Em relação a indicar a Cucinare:</label>
+  <select id="indicacao" name="indicacao" required>
+    <option value="">Selecione</option>
+    <option>Certamente indicaria a Cucinare</option>
+    <option>Provavelmente indicaria a Cucinare</option>
+    <option>Não tenho certeza se indicaria a Cucinare</option>
+    <option>Não indicaria a Cucinare</option>
+  </select>
+
+  <label for="comentarios">Comentários, ideias ou sugestões:</label>
+  <textarea id="comentarios" name="comentarios" rows="4"></textarea>
+
+  <button class="button" type="submit">Enviar</button>
+</form>
+
+
+<script>
+  const perguntas = [
+    "1. E em relação às refeições (almoço, jantar e ceia) servidas pela Cucinare:",
+    "2. Pensando no sabor das refeições produzidas pela Cucinare, quão satisfeito você diria que está?",
+    "3. E quanto à organização e limpeza do restaurante da Cucinare:",
+    "4. Como você se sente em relação ao empenho e a dedicação do time fixo do restaurante?",
+    "5. Como você avalia a supervisão/coordenação responsável pela unidade?",
+    "6. E sobre o profissional que faz a gestão diária do restaurante, como você o avalia?",
+    "7. Que nota você daria para a Cucinare ao tratar de assuntos administrativos?"
+  ];
+
+  const perguntasContainer = document.getElementById("perguntas");
+
+  perguntas.forEach((texto, index) => {
+    const i = index + 1;
+
+    const div = document.createElement("div");
+    div.className = "question";
+
+    const radios = Array.from({ length: 10 }, (_, j) => {
+  const val = j + 1;
+  return `
+    <input type="radio" id="pergunta${i}_nota${val}" name="pergunta${i}" value="${val}" required onchange="mostrarJustificativaRadio(${i}, ${val})" />
+    <label for="pergunta${i}_nota${val}">${val}</label>
+  `;
+}).join("");
+
+    div.innerHTML = `
+      <label>${texto}</label>
+      <div class="radio-group">${radios}</div>
+      <div id="justificativa${i}" class="justificativa">
+        <label for="motivo${i}">Por favor, compartilhe conosco os motivos que levaram a essa avaliação:</label>
+        <textarea id="motivo${i}" name="motivo${i}" rows="3"></textarea>
+      </div>
+    `;
+
+    perguntasContainer.appendChild(div);
+  });
+
+  function mostrarJustificativaRadio(index, value) {
+  const justificativa = document.getElementById("justificativa" + index);
+  const textarea = document.getElementById("motivo" + index);
+
+  if (value < 7) {
+    justificativa.style.display = "block";
+    textarea.setAttribute("required", "required");
+  } else {
+    justificativa.style.display = "none";
+    textarea.removeAttribute("required");
+    textarea.value = ""; // limpa texto se for escondido
+  }
+}
+
+  function verificarOutraArea() {
+  const area = document.getElementById("area");
+  const outraAreaContainer = document.getElementById("outraAreaContainer");
+  const outraAreaInput = document.getElementById("outraArea");
+
+  if (area.value === "Outro") {
+    outraAreaContainer.style.display = "block";
+    outraAreaInput.setAttribute("required", "required");
+  } else {
+    outraAreaContainer.style.display = "none";
+    outraAreaInput.removeAttribute("required");
+    outraAreaInput.value = ""; // limpa valor anterior, se houver
+  }
+}
+
+ /*function enviarFormulario() {
+    // Aqui você pode colocar o código de validação, envio etc.
+    
+    // Simula o envio (você pode integrar com PHP ou outro método depois)
+    // Aguarda 500ms para parecer que está "enviando"
+    setTimeout(() => {
+      window.location.href = "agradecimento.html";
+    }, 500);
+
+    // Previne o envio padrão do formulário
+    return false;
+  }*/
+</script>
+
+</body>
+</html>

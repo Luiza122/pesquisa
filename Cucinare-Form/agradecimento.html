@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Obrigado pela sua resposta</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #d9f1e6, #ffffff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #2c3e50;
+    }
+
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+    }
+
+    .checkmark {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: inline-block;
+      border: 4px solid #4caf50;
+      position: relative;
+      animation: pop 0.4s ease-out;
+      margin-bottom: 20px;
+    }
+
+    .checkmark::after {
+      content: "";
+      position: absolute;
+      left: 22px;
+      top: 12px;
+      width: 20px;
+      height: 40px;
+      border-right: 4px solid #4caf50;
+      border-bottom: 4px solid #4caf50;
+      transform: rotate(45deg);
+    }
+
+    @keyframes pop {
+      0% {
+        transform: scale(0.6);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    h1 {
+      font-size: 1.8em;
+      margin-bottom: 10px;
+      color: #2e7d32;
+    }
+
+    p {
+      font-size: 1.1em;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="checkmark"></div>
+    <h1>Obrigado por responder!</h1>
+    <p>Suas respostas foram registradas com sucesso.<br />A Cucinare agradece a sua colaboração!</p>
+  </div>
+</body>
+</html>
