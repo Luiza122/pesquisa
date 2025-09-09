@@ -132,13 +132,27 @@
                         <div class="emoji-description">Totalmente Insatisfeito</div>
                     </div>
                 </div>
-                
+
+                <div id="perguntaSetor" class="question-card" hidden>
+                        <div class="question-header">Qual o seu setor?</div>
+                        <div class="question-sep"></div>
+                    
+                    <label class="radio-line">
+                        <input type="radio" name="setor" value="Administrativo">
+                        <span class="radio-ui"></span>
+                        <span class="radio-text">Administrativo</span> 
+                    </label>
+                    <label class="radio-line">
+                        <input type="radio" name="setor" value="Operacional">
+                        <span class="radio-ui"></span>
+                        <span class="radio-text">Operacional</span>
+
+                    </label>
+                </div>
 
                 <label for="name">Seu nome (Opcional):</label>
                 <input type="text" id="name" name="nome">
                 
-                <label for="sector">Setor (Opcional):</label>
-                <input type="text" id="sector" name="setor">
 
 
                 <label for="comments">Deixe aqui seu comentário! (elogio, sugestão ou reclamação): (Opcional)</label>
@@ -208,6 +222,19 @@
     submitButton.textContent = "Enviando..."; // Altera o texto do botão
 
 });
+
+async function atualizarPerguntaSetor(){
+  // durante o teste: force=1; depois REMOVA o ?force=1
+  const r = await fetch('/api/pergunta-setor?force=1');
+  const { mostrarPerguntaSetor } = await r.json();
+  const box = document.getElementById('perguntaSetor');
+  if (!box) return;
+  box.hidden = !mostrarPerguntaSetor;
+  if (!mostrarPerguntaSetor) {
+    document.querySelectorAll('input[name="setor"]').forEach(i => i.checked = false);
+  }
+}
+document.addEventListener('DOMContentLoaded', atualizarPerguntaSetor);
     </script>
     <script src="script.js"></script>
 </body>

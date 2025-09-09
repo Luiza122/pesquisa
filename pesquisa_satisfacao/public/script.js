@@ -12,3 +12,4 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('Parâmetro "meal" não encontrado na URL.');
     }
 });
+
