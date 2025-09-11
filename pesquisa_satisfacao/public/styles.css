@@ -317,20 +317,3 @@ label {
     margin-bottom: 70px;
 }
 
-/* Ajuste para dispositivos menores */
-@media (max-width: 768px) {
-    body {
-        background-size: cover;
-        background-position: center;
-        min-height: 100vh;
-        height: 100%; /* Garantir que o fundo ocupe toda a altura */
-        overflow: hidden; /* Impede qualquer transbordamento de conteúdo */
-    }
-
-    .menu {
-        padding: 15px; /* Ajuste no padding para se ajustar melhor a telas menores */
-    }
-}
-
-#perguntaSetor .question-header{ font-size:18px !important; text-align:left !important; }
-#perguntaSetor label{ font-size:17px !important; }

@@ -1,10 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" href="/favicon.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário de Satisfação</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+/* ===== Overrides fortes só para o bloco do setor ===== */
+#perguntaSetor {
+  text-align: left !important;
+  background: rgba(255,255,255,0.85) !important;
+  border-radius: 10px !important;
+  padding: 18px 20px !important;
+  margin: 20px 0 24px !important;
+  font-family: inherit !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  border: 1px solid #e5e9ec !important;
+  max-width: 420px;
+}
+
+#perguntaSetor .question-header {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: #2b2b2b !important;
+  margin-bottom: 8px !important;
+}
+
+#perguntaSetor .question-sep {
+  height: 2px !important;
+  background: #e5e9ec !important;
+  margin-bottom: 12px !important;
+  border-radius: 1px;
+}
+
+#perguntaSetor label.radio-line {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin: 12px 0 !important;
+  font-size: 17px !important;
+  font-weight: 500 !important;
+  color: #363636 !important;
+  cursor: pointer;
+  position: relative;
+  padding-left: 0;
+}
+
+/* esconde o radio nativo e usa o círculo custom */
+#perguntaSetor label.radio-line input[type="radio"] {
+  position: absolute !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+#perguntaSetor .radio-ui {
+  width: 22px !important;
+  height: 22px !important;
+  border: 2px solid #cfd6dc !important;
+  border-radius: 50% !important;
+  display: inline-block !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+  background: #fff;
+  transition: border-color 0.2s;
+}
+#perguntaSetor label.radio-line input[type="radio"]:checked + .radio-ui::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 50%; left: 50%;
+  width: 10px; height: 10px;
+  transform: translate(-50%,-50%);
+  border-radius: 50%;
+  background: #3a3a3a !important;
+}
+#perguntaSetor .radio-line:hover .radio-ui {
+  border-color: #9ea8b1 !important;
+}
+#perguntaSetor label.radio-line input[type="radio"]:focus-visible + .radio-ui {
+  outline: 2px solid #9ea8b1 !important;
+  outline-offset: 2px !important;
+}
+#perguntaSetor .radio-text {
+  font-size: 17px;
+  font-weight: 500;
+  color: #363636;
+  user-select: none;
+}
+
+/* ===== Correções gerais do formulário ===== */
+.form-container{
+  position: relative;
+  z-index: 2;                 /* garante acima do background */
+  text-align: left;           /* nada centralizado */
+  font-style: normal;
+}
+
+/* Labels legíveis e alinhadas */
+.form-container label{
+  display: block;
+  margin: 12px 0 6px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #2b2b2b;
+  text-align: left !important;
+  font-style: normal !important;
+}
+
+/* Campos NUNCA transparentes */
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="tel"],
+.form-container textarea,
+.form-container select{
+  background-color: #fff !important;   /* opaco */
+  color: #333 !important;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 6px;
+  padding: 12px 14px;
+  width: 100%;
+  box-sizing: border-box;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Placeholder mais discreto */
+.form-container ::placeholder{
+  color: #a0a0a0;
+}
+
+/* Espaço extra entre o bloco do setor e o campo "Seu nome" */
+#perguntaSetor{ margin-bottom: 16px; }
+
+/* (opcional) sombreamento suave nos campos */
+.form-container input[type="text"],
+.form-container textarea{
+  box-shadow: 0 1px 2px rgba(0,0,0,.04) inset;
+}
+
+/* Se algum CSS global estiver deixando tudo gigante, limita o tamanho dentro do form */
+.form-container{ font-size: 16px; }
+.form-container *{ font-size: inherit; }  /* herda tamanho padrão do form */
+
+</style>
+
 </head>
 <body>
     <script src="header.js"></script>
@@ -149,6 +288,7 @@
 
                     </label>
                 </div>
+
 
                 <label for="name">Seu nome (Opcional):</label>
                 <input type="text" id="name" name="nome">
