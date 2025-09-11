@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Admin</title>
+    <link rel="stylesheet" href="styleadmin.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('/feedbacks')
+                .then(response => response.json())
+                .then(data => {
+                    const tableBody = document.querySelector('#feedback-table-body');
+                    tableBody.innerHTML = '';
+
+                    data.forEach(feedback => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${feedback.nome}</td>
+                            <td>${feedback.tipo_refeicao}</td>
+                            <td>${feedback.unidade}</td>
+                            <td>${feedback.sabor_refeicao}</td>
+                            <td>${feedback.apresentacao_refeicao}</td>
+                            <td>${feedback.temperatura_refeicao}</td>
+                            <td>${feedback.limpeza_organizacao}</td>
+                            <td>${feedback.atendimento_equipa}</td>
+                            <td>${feedback.comentario}</td>
+
+                        `;
+                        tableBody.appendChild(row);
+                    });
+                })
+                .catch(error => console.error('Erro ao buscar feedbacks:', error));
+        });
+    </script>
+</head>
+<body>
+    <script src="header.js"></script>
+    <div class="background-image">
+        <div class="admin-container">
+            <h1>Feedbacks</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Tipo da Refeição</th>
+                        <th>Unidade</th>
+                        <th>Sabor</th>
+                        <th>Apresentação</th>
+                        <th>Temperatura</th>
+                        <th>Limpeza</th>
+                        <th>Atendimento</th>
+                        <th>Comentários</th>
+                    </tr>
+                </thead>
+                <tbody id="feedback-table-body">
+                    <!-- Os dados dos feedbacks serão inseridos aqui -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="admin-options">
+        <a href="/export-csv" class="export-button">Exportar como CSV</a>
+        <a href="/export-excel" class="export-button">Exportar como Excel</a>
+    </div>
+</body>
+</html>

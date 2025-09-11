@@ -1,0 +1,65 @@
+@font-face {
+    font-family: 'AkhandSoft'; /* Nome que você usará no CSS */
+    src: url('./Public/akhand-soft.otf') format('opentype'); /* Caminho para o arquivo e formato */
+  }
+
+body {
+    font-family: 'AkhandSoft';
+    background-image: url('http://cucinare.com.br/wp-content/uploads/2023/12/Ativo-11@4x.png'); /* Substitua pelo caminho da sua imagem de fundo */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    margin: 15px 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input, select {
+    width: 100%; /* Largura fixa para todos os elementos */
+    height: 40px; /* Altura fixa para garantir uniformidade */
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box; /* Para incluir o padding na largura total */
+}
+
+button {
+    background-color: #d9a850;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%; /* Para que o botão também tenha a mesma largura */
+}
+
+button:hover {
+    background-color: #b89040;
+}

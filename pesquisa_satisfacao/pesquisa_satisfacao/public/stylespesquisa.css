@@ -1,0 +1,52 @@
+@font-face {
+    font-family: 'AkhandSoft'; /* Nome que você usará no CSS */
+    src: url('./Public/akhand-soft.otf') format('opentype'); /* Caminho para o arquivo e formato */
+  }
+
+body {
+    font-family: 'AkhandSoft';
+    background-image: url('http://www.cucinare.com.br/wp-content/uploads/2021/07/Salada-scaled.jpg'); /* Substitua pelo caminho da sua imagem de fundo */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.login-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 300px;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px -10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #d9a850;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #b89040;
+}

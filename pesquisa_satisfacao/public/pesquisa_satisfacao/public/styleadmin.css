@@ -1,0 +1,148 @@
+@font-face {
+    font-family: 'AkhandSoft'; /* Nome que você usará no CSS */
+    src: url('./Public/akhand-soft.otf') format('opentype'); /* Caminho para o arquivo e formato */
+  }
+
+  body {
+    margin: 0;
+    font-family: 'AkhandSoft';
+    background-color: transparent; /* Fundo transparente */
+    background-image: url('http://cucinare.com.br/wp-content/uploads/2021/11/Picadinho.jpg');
+    background-position: center;
+    background-size: cover;
+    height: auto; /* Permite que o conteúdo defina a altura */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Garante que o conteúdo comece no topo */
+    align-items: center;
+    padding-bottom: 50px; /* Espaço na parte inferior da página */
+}
+
+.background-image {
+    
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Mantém a altura da tela */
+    
+    
+    
+    align-items: center;
+    position: relative; /* Permite posicionar elementos dentro dessa div */
+}
+
+.admin-container {
+    max-width: 800px; /* Limita a largura da tabela para 800px */
+    width: 90%; /* Tabela ocupa 90% da largura da tela */
+    padding: 15px; /* Espaçamento interno */
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco com leve transparência */
+    border-radius: 10px; /* Cantos arredondados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidade */
+    margin: 20px auto; /* Centraliza e adiciona espaço no topo */
+    position: relative; /* Garante que a tabela esteja dentro do fluxo */
+}
+
+h1 {
+    text-align: center;
+    color: #333; /* Cor do texto */
+    font-size: 28px; /* Ajusta o tamanho do título */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* Elimina o espaço entre as bordas */
+    table-layout: auto; /* Permite que as colunas ajustem sua largura ao conteúdo */
+}
+thead {
+    background-color: #f2f2f2; /* Cor de fundo do cabeçalho */
+    color: #333; /* Cor do texto do cabeçalho */
+    text-align: center;
+}
+
+th, td {
+    padding: 12px; /* Adicione um preenchimento uniforme */
+    text-align: center; /* Alinhamento do texto */
+    border-bottom: 1px solid #ccc; /* Linha de separação */
+    font-size: 10px; /* Tamanho da fonte */
+    vertical-align: middle; /* Alinhamento vertical ao meio */
+    min-width: 80px; /* Define uma largura mínima para cada coluna */
+    word-wrap: break-word; /* Quebra as palavras, se necessário */
+}
+
+
+/* Para o cabeçalho */
+th {
+    background-color: #d9a850; /* Cor de fundo do cabeçalho */
+    color: #fff; /* Cor do texto do cabeçalho */
+    word-wrap: break-word; /* Permite quebra de palavras */
+    white-space: normal; /* Permite múltiplas linhas */
+}
+
+/* Para as linhas */
+tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.1); /* Cor de fundo para linhas pares */
+}
+
+tbody tr:hover {
+    background-color: rgba(217, 168, 80, 0.2); /* Cor de fundo ao passar o mouse */
+}
+
+tbody {
+    display: block; /* Permite rolagem vertical */
+    max-height: 400px; /* Define altura máxima para rolagem */
+    overflow-y: auto; /* Ativa a rolagem vertical */
+    width: 100%; /* Garante que o tbody ocupe 100% da largura */
+}
+
+tr {
+    display: table; /* Cada linha se comporta como uma tabela */
+    width: 100%; /* Para garantir que as células ocupem a largura total */
+    table-layout: fixed; /* Garante que as colunas tenham largura fixa */
+}
+
+table {
+    width: 100%; /* Ocupa toda a largura disponível */
+    border-collapse: collapse; /* Remove os espaços entre as bordas */
+    text-align: center; /* Centraliza o conteúdo da tabela */
+    table-layout: fixed; /* Garante que todas as colunas tenham tamanhos uniformes */
+}
+
+.admin-options {
+    display: flex; /* Ativa o Flexbox */
+    flex-direction: column; /* Organiza os botões verticalmente */
+    align-items: center; /* Centraliza os botões horizontalmente */
+    gap: 10px; /* Espaço entre os botões */
+    margin: 20px auto; /* Adiciona espaço acima e abaixo da seção de botões */
+}
+
+.export-button {
+    background-color: #d9a850; /* Cor do botão */
+    color: white; /* Cor do texto */
+    padding: 10px 20px; /* Espaçamento interno do botão */
+    border: none; /* Remove a borda */
+    border-radius: 5px; /* Cantos arredondados */
+    text-decoration: none; /* Remove o sublinhado */
+    font-size: 14px; /* Tamanho da fonte */
+    text-align: center; /* Centraliza o texto no botão */
+    width: 200px; /* Largura fixa para os botões */
+    transition: background-color 0.3s ease; /* Efeito de transição ao passar o mouse */
+}
+
+.export-button:hover {
+    background-color: #c99b40; /* Cor do botão ao passar o mouse */
+}
+
+/* Media Queries para dispositivos menores */
+@media (max-width: 768px) {
+    .admin-container {
+        width: 95%; /* Tabela ocupa 95% da largura em dispositivos menores */
+    }
+
+    th, td {
+        font-size: 10px; /* Tamanho da fonte ainda menor em dispositivos pequenos */
+    }
+
+    h1 {
+        font-size: 24px; /* Reduzir o tamanho do título */
+    }
+}
